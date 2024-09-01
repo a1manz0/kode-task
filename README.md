@@ -1,5 +1,7 @@
 ### Getting Started 
+#### First you need to clone this repository
 git clone https://github.com/a1manz0/kode-task.git
+#### Then run
 docker compose up --build
 
 ### To register you can use:
