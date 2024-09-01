@@ -1,3 +1,7 @@
+### Getting Started 
+git clone https://github.com/a1manz0/kode-task.git
+docker compose up --build
+
 ### To register you can use:
 curl -X 'POST' \
   'http://127.0.0.1:8000/auth/register' \
