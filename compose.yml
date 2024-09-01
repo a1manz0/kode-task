@@ -1,0 +1,43 @@
+version: "3.3"
+
+services:
+  database:
+    container_name: database
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_PORT=${POSTGRES_PORT:-5432}
+      - POSTGRES_USER=${POSTGRES_USER:-admin}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-admin}
+      - POSTGRES_DB=${POSTGRES_DB:-db}
+      - POSTGRES_NAME=${POSTGRES_NAME:-db}
+      - POSTGRES_HOST=${POSTGRES_HOST:-database}
+    ports:
+      - 5432:5432
+    volumes:
+      - db:/var/lib/postgresql/data
+    networks:
+      - mynet
+  web:
+    build: .
+    ports:
+      - 8000:8000
+    environment:
+      - USE_POSTGRES_DB=true
+      - POSTGRES_DB=${POSTGRES_DB:-db}
+      - DB_HOST=${DB_HOST:-localhost}
+      - DB_USER=${DB_USER:-admin}
+      - DB_NAME=${DB_NAME:-db}
+      - DB_PORT=${DB_PORT:-5432}
+      - DB_PASS=${DB_PASS:-admin}
+      - SECRET=${SECRET:-SECRET}
+    networks:
+      - mynet
+
+volumes:
+  db:
+    driver: local
+
+networks:
+  mynet:
+    driver: bridge
