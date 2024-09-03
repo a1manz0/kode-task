@@ -4,9 +4,7 @@ from auth.auth import auth_backend, fastapi_users
 from notes.router import router as router_notes
 
 
-app = FastAPI(
-    title="Trading App"
-)
+app = FastAPI(title="Trading App")
 
 app.include_router(
     fastapi_users.get_auth_router(auth_backend),
@@ -20,6 +18,4 @@ app.include_router(
     tags=["auth"],
 )
 
-app.include_router(
-    router_notes
-)
+app.include_router(router_notes)
