@@ -11,4 +11,4 @@ COPY . .
 
 EXPOSE 8000
 
-CMD alembic revision -m "init db" && alembic upgrade head && sleep 10 && uvicorn main:app --host=0.0.0.0
+CMD alembic upgrade head && sleep 10 && uvicorn main:app --host=0.0.0.0

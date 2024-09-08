@@ -30,10 +30,10 @@ curl -X 'POST'   'http://127.0.0.1:8000/auth/jwt/login'   -H 'accept: applicatio
 
 ### To create note you can use:
 ```
-curl -X 'POST' 'http://127.0.0.1:8000/notes/add' -H 'accept: application/json' -H 'Content-Type: application/json' -H'Authorization: Bearer YOUR TOKEN'  -d '{"content": "some content with errars" }'
+curl -X 'POST' 'http://127.0.0.1:8000/notes/add' -H 'accept: application/json' -H 'Content-Type: application/json' -H'Authorization: Bearer YOUR_TOKEN'  -d '{"content": "some content with errars" }'
 ```
 
 ### To get all notes you can use:
 ```
-curl -X 'GET' 'http://127.0.0.1:8000/notes/get_all' -H 'accept: application/json' -H'Authorization: Bearer YOUR TOKEN'
+curl -X 'GET' 'http://127.0.0.1:8000/notes/get_all' -H 'accept: application/json' -H'Authorization: Bearer YOUR_TOKEN'
 ```
